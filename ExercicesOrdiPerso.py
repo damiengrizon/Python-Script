@@ -89,3 +89,58 @@ while True:
     
 print("le nom de la ou les personne(s) que vous avez saisie est :",  list[::])
 '''
+# trouver la distance la plus petite de cette liste:
+# distance_chauffeur_km = [1.5, 2.2, 0.4, 0.9, 7.1, 1.1, 0.6]
+'''
+distance_chauffeur_km = [1.5, 2.2, 0.4, 0.9, 7.1, 1.1, 0.6]
+distance_min = distance_chauffeur_km[0]
+
+for distance in distance_chauffeur_km:
+    if distance < distance_min:
+        distance_min = distance
+
+print("la valeur la plus petite de la liste est : " , distance_min)
+'''
+# Améliorer le programme ci dessus pour en "l'associant" avec la valeur de la seconde liste afin que la réponse associe le chauffeur le plus proche et son nom
+# nom_chauffeur = ["Patrick", "Paul", "Marc", "Jean", "Pierre", "Marie", "Maxime"]
+'''
+nom_chauffeur = ["Patrick", "Paul", "Marc", "Jean", "Pierre", "Marie", "Maxime"]
+distance_chauffeur_km = [1.5, 2.2, 0.4, 0.9, 7.1, 1.1, 0.6]
+distance_min = distance_chauffeur_km[0]
+nom_chauffeur_min = nom_chauffeur[0]
+
+for i in range(len(distance_chauffeur_km)):
+    if distance_chauffeur_km[i] < distance_min:
+        distance_min = distance_chauffeur_km[i]
+        nom_chauffeur_min = nom_chauffeur[i]
+
+print("la distance la plus petite de la liste est : " , distance_min, " km et le nom du chauffeur est: ", nom_chauffeur_min)
+'''
+# Donner la valeur la plus petite de la liste de distance mais en utilisant la fonction sort:
+'''
+distance_chauffeur_km = [1.5, 2.2, 0.4, 0.9, 7.1, 1.1, 0.6]
+distance_chauffeur_km.sort()
+print("la distance la plus petite de la liste est : " , distance_chauffeur_km[0])
+'''
+# En utilisant une liste de tuples qui associe mieux les données refaire l'exercice avec la nouvelle liste
+# nom_et_distance = = [("Patrick", 1.5), ("Paul", 2.2), ("Marc", 0.4), ("Jean", 0.9), ("Pierre", 7.1), ("Marie", 1.1), ("Maxime", 0.6)]
+noms_et_distances = [("Patrick", 1.5), ("Paul", 2.2), ("Marc", 0.4), ("Jean", 0.9), ("Pierre", 7.1), ("Marie", 1.1), ("Maxime", 0.6)]
+
+index = 0
+'''
+for i in range(len(nom_et_distance)):
+    distance_min = nom_et_distance[0][1]
+    print(f"distance min est à la valeur :{distance_min}")
+    if nom_et_distance[i][1] < distance_min[1]:
+        distance_min = nom_et_distance[i][1]
+        print(distance_min)
+        index = i
+        print(i)
+
+
+print(nom_et_distance[1])
+'''
+nom_et_distance_min = noms_et_distances[0]
+for nom_et_distance in noms_et_distances:
+
+
