@@ -124,23 +124,13 @@ print("la distance la plus petite de la liste est : " , distance_chauffeur_km[0]
 '''
 # En utilisant une liste de tuples qui associe mieux les données refaire l'exercice avec la nouvelle liste
 # nom_et_distance = = [("Patrick", 1.5), ("Paul", 2.2), ("Marc", 0.4), ("Jean", 0.9), ("Pierre", 7.1), ("Marie", 1.1), ("Maxime", 0.6)]
+
 noms_et_distances = [("Patrick", 1.5), ("Paul", 2.2), ("Marc", 0.4), ("Jean", 0.9), ("Pierre", 7.1), ("Marie", 1.1), ("Maxime", 0.6)]
 
-index = 0
-'''
-for i in range(len(nom_et_distance)):
-    distance_min = nom_et_distance[0][1]
-    print(f"distance min est à la valeur :{distance_min}")
-    if nom_et_distance[i][1] < distance_min[1]:
-        distance_min = nom_et_distance[i][1]
-        print(distance_min)
-        index = i
-        print(i)
-
-
-print(nom_et_distance[1])
-'''
 nom_et_distance_min = noms_et_distances[0]
 for nom_et_distance in noms_et_distances:
+    if nom_et_distance[1] < nom_et_distance_min[1]:
+        nom_et_distance_min = nom_et_distance
+print("la distance la plus petite de la liste est : " , nom_et_distance_min[1], " km et le nom du chauffeur est: ", nom_et_distance_min[0])
 
 
