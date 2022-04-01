@@ -38,6 +38,23 @@ question2 = ("Qui est le plus lent ? ", ("lapin","tortue", "pieuvre", "guépard"
 question3 = ("Qui est le pénible ? ", ("lapin", "renard", "pieuvre", "chat"),"chat")
 question4 = ("Qui est le plus grand ? ", ("lapin", "renard", "éléphant", "guépard"), "éléphant")
 score = 0
+QuestionnaireAnimaux = [question1, question2, question3, question4]
+
+def lancer_questionnaire(liste):
+    for question in liste:
+        poserQuestion(question)
+
+def demander_reponse_numerique_utilisateur(min,max):
+    reponseQuestion = input ( "Quelle est votre réponse? (de " + str(min) + " à " + str(max) + ") :")
+    try:
+        reponseInt = int(reponseQuestion)
+        if min <= reponseInt <= max :
+            return reponseInt
+        print("Entrez un chiffre qui correspond au nombre de question")
+    except:
+        print("Veuillez rentrer un chiffre")
+    return demander_reponse_numerique_utilisateur(min,max)
+
 
 def poserQuestion(question):
     global score
@@ -46,28 +63,20 @@ def poserQuestion(question):
     for i in range(len(question[1])):
         print( i+1, "-" , question[1][i] )
     print() 
-    demander_reponse_numerique_utilisateur(1,len(question[1])
-
+    reponseInt = demander_reponse_numerique_utilisateur(1,len(question[1]))
 
     if question[1][reponseInt-1] == question[2]:
         print("ouah t trop fort")
         score+=1
     else:
         print("Dommage, ce n'est pas la bonne réponse")
-
+'''
 poserQuestion(question1)
 poserQuestion(question2)
 poserQuestion(question3)
 poserQuestion(question4)
+'''
+lancer_questionnaire(QuestionnaireAnimaux)
 print(f"ton score est de", score)
-
-def demander_reponse_numerique_utilisateur(min,max):
-    reponseQuestion = input ( "quelle est votre réponse? (de " + str(min) + " à " + str(max) + ") :")
-    while reponseQuestion > max:
-        print("votre réponse est supérieur au nombre de réponses")
-    while reponseQuestion =
-    reponseInt = int(reponseQuestion)
-    
-
 
 
