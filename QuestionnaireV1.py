@@ -41,8 +41,15 @@ score = 0
 QuestionnaireAnimaux = [question1, question2, question3, question4]
 
 def lancer_questionnaire(liste):
+    score = 0
     for question in liste:
-        poserQuestion(question)
+        if poserQuestion(question):
+            score += 1
+    print("----")
+    print(f"ton score est de", score)
+    print("----")
+
+        
 
 def demander_reponse_numerique_utilisateur(min,max):
     reponseQuestion = input ( "Quelle est votre réponse? (de " + str(min) + " à " + str(max) + ") :")
@@ -57,19 +64,20 @@ def demander_reponse_numerique_utilisateur(min,max):
 
 
 def poserQuestion(question):
-    global score
     print()
     print(question[0])
     for i in range(len(question[1])):
         print( i+1, "-" , question[1][i] )
     print() 
     reponseInt = demander_reponse_numerique_utilisateur(1,len(question[1]))
+    reponse_question =  False
 
     if question[1][reponseInt-1] == question[2]:
         print("ouah t trop fort")
-        score+=1
+        reponse_question = True
     else:
         print("Dommage, ce n'est pas la bonne réponse")
+    return reponse_question
 '''
 poserQuestion(question1)
 poserQuestion(question2)
@@ -77,6 +85,6 @@ poserQuestion(question3)
 poserQuestion(question4)
 '''
 lancer_questionnaire(QuestionnaireAnimaux)
-print(f"ton score est de", score)
+
 
 
