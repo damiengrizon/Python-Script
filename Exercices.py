@@ -157,6 +157,7 @@ print("liste Impair : " + str(lImpair))
 '''
 
 # Ecrivez un programme qui analyse un par un tous les éléments d'une liste de mots ( ['Jean', 'Maximilien', 'Brigitte', 'Sonia', 'Jean-Pierre', 'Sandra'] ) pout generer deux nouvelles listes, l'une avec le nombre de caractète inférieur à 6 et l'autre supérieur ou plus.
+'''
 l=['Jean', 'Maximilien', 'Brigitte', 'Sonia', 'Jean-Pierre', 'Sandra']
 lInferieur6 = []
 lSuperieur6 = []
@@ -169,3 +170,53 @@ for i in range(0,len(l)):
         print("error")
 print("liste lInferieur6 : " + str(lInferieur6) )
 print("liste lSuperieur6 ou égal : " + str(lSuperieur6))
+'''
+# Ecrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse founie par l'utilisateur  en miles/heure. (Rappel 1 Miles = 1609 mètres)
+'''
+from math import *
+reponse = input("Convertiseur miles/h : Quelle est la valeur que vous souhaitez convertir en m/s et en km/h?")
+
+1609 metres - 3600 secondes ( miles/heures)
+1 metre - 1seconde (m/s)
+1000 metres - 3600 secondes (km/h)
+1 miles/h  = 1609 m en 3600s
+
+reponseInt = float(reponse)
+#milesParSeconde = reponseInt/3600
+#metreParSeconde = milesParSeconde/1609
+metreParSeconde = reponseInt*1609/3600
+kilometreParHeure = reponseInt * 1.609
+
+print (f"Votre vitesse en miles/heures : { reponse }, en m/s : {metreParSeconde} , en km/h {kilometreParHeure} ")
+'''
+# Ecrivez un programme qui calcule le périmètre et l'aire d'un triangle quelquonque dont l'utilisateur founit les trois côtés
+# formule de l'aire d'un triangle quelquonque S = racine carré {d.(d-a).(d-b).(d-c)}
+# d= longueur du demi-périmètre et a,b et c sont les trois côtés
+from math import *
+longeurCotesTriangle = []
+def testInputValide(reponse):
+    try:
+        reponseInt= int(longueurCoteTriangle)
+        if reponseInt >= 0 :
+            return reponse
+        print("Veuillez entrer une valeur supérieur à 0!")
+    except:
+        print("Veuillez entrer un chiffre!")
+    return testInputValide(reponse) #-- boucle infini car ici il retourne la réponse sans demander la correction
+
+for i in range(3):
+        longueurCoteTriangle = input("veuillez entrer la longueur des trois côtés du triangle un à un : ( valider avec la touche entrée)")
+        reponse = testInputValide(longueurCoteTriangle)
+        print(" longueur du côtés  "+ str(i+1) +" du triangle : " + reponse)
+        longeurCotesTriangle.append(reponse)
+
+print(longeurCotesTriangle)
+
+'''
+d= (a+b+c)/2
+aireDuTriangle = sqrt(d*(d-a)*(d-b)*(d-c))
+print(f" le périmètre du triangle donnée est : {d*2} et son aire est est de {d}")
+'''
+# Ecrivez un programme qui calcule la période d'un pendule simple de longueur donnée.
+# formule de calcule : T = 2*Pi*Racine carré(l/g)
+# l = longueur du pendule; G = la valeur de l'accélération de la pesanteur au lieu d'expérience
