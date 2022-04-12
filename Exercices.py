@@ -193,24 +193,35 @@ print (f"Votre vitesse en miles/heures : { reponse }, en m/s : {metreParSeconde}
 # formule de l'aire d'un triangle quelquonque S = racine carré {d.(d-a).(d-b).(d-c)}
 # d= longueur du demi-périmètre et a,b et c sont les trois côtés
 from math import *
+
 longeurCotesTriangle = []
-def testInputValide(reponse):
+perimetre = 0
+aire = 0
+
+def testInputValide():
+    longueurCoteTriangle = input("veuillez entrer la longueur d'un côtés du triangle, puis valider avec la touche entrée :  ")
     try:
         reponseInt= int(longueurCoteTriangle)
-        if reponseInt >= 0 :
-            return reponse
-        print("Veuillez entrer une valeur supérieur à 0!")
+        if reponseInt <= 0 :
+            print("Veuillez entrer une valeur supérieur à 0!")
+            return testInputValide()
     except:
         print("Veuillez entrer un chiffre!")
-    return testInputValide(reponse) #-- boucle infini car ici il retourne la réponse sans demander la correction
+        return testInputValide()
+    return reponseInt
 
 for i in range(3):
-        longueurCoteTriangle = input("veuillez entrer la longueur des trois côtés du triangle un à un : ( valider avec la touche entrée)")
-        reponse = testInputValide(longueurCoteTriangle)
-        print(" longueur du côtés  "+ str(i+1) +" du triangle : " + reponse)
-        longeurCotesTriangle.append(reponse)
+    reponse = testInputValide()
+    print(" longueur du côtés  "+ str(i+1) +" du triangle : " + str(reponse))
+    longeurCotesTriangle.append(reponse)
+    perimetre += longeurCotesTriangle[i]
+d = perimetre/2
 
-print(longeurCotesTriangle)
+
+aire = sqrt(d*(d-a)*(d-b)*(d-c))
+
+
+print(" le périmètre du triangle est  : " + str(perimetre))
 
 '''
 d= (a+b+c)/2
