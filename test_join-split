@@ -1,0 +1,32 @@
+'''
+b = "jean, marc, lapin, aujourd'hui"
+b_split= b.split(", ")
+print(b_split)
+# Dans l'exemple ci dessous, une virgule plus un espace.
+['jean', 'marc', 'lapin', "aujourd'hui"]
+'''
+'''
+noms = ["coucou", "lapin", "chalut"]
+print(noms.index("lapin"))
+'''
+'''
+a = [i for i in range(0,10) if i%2==0]
+print(a)
+
+b = [i if i%2==0 else False for i in range(0,10)]
+print(b)
+
+noms = ["coucou", "lapin", "chalut", "Helloo"]
+nomsInf6 = [nom if len(nom)<6 else 0 for nom in noms]
+print(nomsInf6)
+'''
+'''
+noms = ["coucou", "lapin", "chalut", "Helloo"]
+longueur_noms = [len(nom) if len(nom) < 6 else 0 for nom in noms]
+print(longueur_noms)
+longueurNoms = [len(nom) for nom in noms if len(nom)<10]
+nomsAvecE = [len(nom) for nom in noms if "e" in nom]
+print(longueurNoms)
+print(nomsAvecE)
+'''
+
