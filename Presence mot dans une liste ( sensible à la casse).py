@@ -11,17 +11,31 @@ def element_dans_liste(element, liste_cible):
 element = input("Quel est l'élément pour lequel vous souhaitez savoir s'il est présent dans la liste ?")
 noms = ["Jean", "Lapin", "Sophie", "Martin", "Christophe", "Zoe", "Martin"]      
 
-if element_dans_liste(element,noms):  
+if element_dans_liste(element,noms):   
     print(f"{element} est bien dans la liste")
 else:
     print("l'élément n'est pas dans la liste")
 '''
 # V2:
+'''
 element = input("Quel est l'élément pour lequel vous souhaitez savoir s'il est présent dans la liste ?")
 noms = ["Jean", "Lapin", "Sophie", "Martin", "Christophe", "Zoe", "Martin"] 
 
 def element_dans_liste(element, liste_cible):
     return any([element_liste_cible for element_liste_cible in liste_cible if element_liste_cible.lower() == element.lower()])
+
+if element_dans_liste(element,noms):  
+    print(f"{element} est bien dans la liste")
+else:
+    print("l'élément n'est pas dans la liste")
+'''
+# V3:
+element = input("Quel est l'élément pour lequel vous souhaitez savoir s'il est présent dans la liste ?")
+noms = ["Jean", "Lapin", "Sophie", "Martin", "Christophe", "Zoe", "Martin"] 
+
+def element_dans_liste(element, liste_cible):
+    element_liste_cible_lower = [element_liste_cible.lower() for element_liste_cible in liste_cible]
+    return element.lower() in element_liste_cible_lower
 
 if element_dans_liste(element,noms):  
     print(f"{element} est bien dans la liste")
