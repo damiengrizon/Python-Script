@@ -192,6 +192,7 @@ print (f"Votre vitesse en miles/heures : { reponse }, en m/s : {metreParSeconde}
 # Ecrivez un programme qui calcule le périmètre et l'aire d'un triangle quelquonque dont l'utilisateur founit les trois côtés
 # formule de l'aire d'un triangle quelquonque S = racine carré {d.(d-a).(d-b).(d-c)}
 # d= longueur du demi-périmètre et a,b et c sont les trois côtés
+'''
 from math import *
 
 longeurCotesTriangle = []
@@ -215,19 +216,49 @@ for i in range(3):
     print(" longueur du côtés  "+ str(i+1) +" du triangle : " + str(reponse))
     longeurCotesTriangle.append(reponse)
     perimetre += longeurCotesTriangle[i]
+
 d = perimetre/2
-
-
+a, b, c = longeurCotesTriangle[0],longeurCotesTriangle[1],longeurCotesTriangle[2]
 aire = sqrt(d*(d-a)*(d-b)*(d-c))
 
 
 print(" le périmètre du triangle est  : " + str(perimetre))
-
-'''
-d= (a+b+c)/2
-aireDuTriangle = sqrt(d*(d-a)*(d-b)*(d-c))
-print(f" le périmètre du triangle donnée est : {d*2} et son aire est est de {d}")
+print(" l'air du triangle est  : " + str(aire))
 '''
 # Ecrivez un programme qui calcule la période d'un pendule simple de longueur donnée.
 # formule de calcule : T = 2*Pi*Racine carré(l/g)
 # l = longueur du pendule; G = la valeur de l'accélération de la pesanteur au lieu d'expérience
+# G = 9.81 m/s2
+'''
+from math import *
+longueurPendule = input("Quelle est la longueur de votre pendule?")
+intLongueurPendule = int(longueurPendule)
+periode = 2*3.14*sqrt(intLongueurPendule/9.81)
+print(f"la période du pendule dont la longueur est de {longueurPendule} est de : {periode}")
+'''
+# Ecrivez un programme qui permette d'encoder les valeurs d'une liste. Ce programme devrait fonctionner en boucle,
+# L'utilisateur étant invité à entrer sans cesse de nouvelles valeurs, jusqu'à ce qu'il décide de terminer en frappant <enter> .
+# Le programme se terminerait alors par l'affichage de la liste.
+# ex : 
+#  Veuillez entrer une valeur : 6 ..etc
+#  Veuillez entrer une valeur : 
+# liste des valeurs :
+# [6, etc...]
+'''
+maList = []
+valeur = "coucou"
+while valeur !="":
+    valeur = input("Veuillez entrer une valeur pour votre liste :")
+    try:
+        intValeur = int(valeur)
+    except:
+        if intValeur !="":
+            print("Veuillez entrer un chiffre!")
+    
+    maList.append(intValeur)
+
+
+print(f"liste des valeurs : {maList}")
+'''
+
+
