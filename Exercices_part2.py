@@ -131,8 +131,12 @@ print("veuiller entrer trois chiffres pour déterminer les trois côtés d'un tr
 coteA = input("Quelle est la longueur du premier côté du triangle : ")
 coteB = input("Quelle est la longueur du deuxième côté du triangle : ")
 coteC = input("Quelle est la longueur du troisième côté du triangle : ")
-print(f"Ce triangle possède trois cotes de longueur :  {coteA}, {coteB}, {coteC} ")
-'''
+intcoteA = int(coteA)
+intcoteB = int(coteB)
+intcoteC = int(coteC)
+etat = False # si False le triangle est quelconque
+print(f"Les trois longueurs données pour le triangle sont :  {coteA}, {coteB}, {coteC} ")
+
 def verifTriangleRectangle(a,b,c): # longueur des cotés du triangle
     listCote=[a,b,c]
     sommeDesCotes = 0
@@ -147,33 +151,81 @@ def verifTriangleRectangle(a,b,c): # longueur des cotés du triangle
         return True
     else:
         return False
-    
-    
+
+if (intcoteA + intcoteB) > intcoteC and (intcoteB + intcoteC) > intcoteA and (intcoteA + intcoteC)> intcoteB:
+    print("Les données saisient permettent bien d'obtenir un triangle")
+else:
+    print("la somme de deux côtes doit être supérieur à la longueur d'un côté pour que ce soit un triangle")
+    etat=True
+
+if verifTriangleRectangle(intcoteA, intcoteB, intcoteC):
+    print("le triangle est un triangle Rectangle")
+    etat = True
+
+if intcoteA == intcoteB == intcoteC:
+    print("le triangle est un triangle Equilatéral")
+    etat = True
+elif intcoteA==intcoteB or intcoteB==intcoteC or intcoteA==intcoteC :
+    print("le triangle est un triangle Isocèle")
+    etat = True
+
+if etat == False :
+    print("le triangle est un triangle quelconque")
+'''
 
 
-print(verifTriangleRectangle(6,8,10))
-    
-    
 
-'''
-if int(coteA)==0 or int(coteB)==0 or int(coteC)==0:
-    print("un des côtés est égal à zéro, il ne peut donc pas sagir d'un triangle")
-elif:
-'''
-'''
-listtest= [3,4,5]
-print(max(listtest))
-'''
 # Demander à l'utilisateur qu'il entre un nombre. Afficher ensuite :  soit la racine carré de ce nombre, soit un message indiquant que la racine carré 
 # de ce nombre ne peut pas être calculée.
+'''
+import math
+try :
+    nombreUtilisateur = input("Veuillez saisir un nombre : ")
+    nombreUtilisateur = float(nombreUtilisateur)
+    print(nombreUtilisateur)
+except:
+    print("la valeur saisie n'est pas un nombre")    
 
-# Convertir une note scolaire N quelconque entrée par l'utilisateur  sous forme de points ( par exemple 27 sur 35), en note standardisée suivant le code ci-àprès:
+if int(nombreUtilisateur):
+    print(f" la racine carré du nombre est : {math.sqrt(nombreUtilisateur)}")
+else:
+    print("la racine carré de ce nombre ne permet pas d'obtenir un entier")
+'''
+
+
+# Convertir une note scolaire N quelconque entrée par l'utilisateur sous forme de points ( par exemple 27 sur 35), en note standardisée suivant le code ci-àprès:
 '''
 Note                    Appréciation
 N>= 80%                     A
-80% > N >= 60%
-60% > N >= 50%
-50% > N >= 40%
+80% > N >= 60%              B
+60% > N >= 50%              C 
+50% > N >= 40%              D
 N< 40%                      E
 '''
+from distutils.log import error
+
+
+try:
+    note = input("Quel est la note que vous souhaitez entrer ?")
+    noteMax = input("Quelle est la note maximale qu'il est possible d'obtenir ?")
+    int(note)
+    int(noteMax)
+except:
+    print("il y a une erreur dans la saisie des informations, merci de saisir des chiffres")
+
+print (f"La note est donc de : {note} / {noteMax} ")
+noteEnPourcentage = (100*int(note))/int(noteMax)
+print (f"la note en pourcentage est de : {noteEnPourcentage} pourcent(s)")
+if noteEnPourcentage > 80:
+    print ( "l'appréciation pour cette note est  : A ")
+elif 80>noteEnPourcentage>=60:
+    print ( "l'appréciation pour cette note est  : B ")
+elif 60>noteEnPourcentage>=50:
+    print ( "l'appréciation pour cette note est  : C ")
+elif 50>noteEnPourcentage>=40:
+    print ( "l'appréciation pour cette note est  : D ")
+elif noteEnPourcentage < 40:
+    print ( "l'appréciation pour cette note est  : E ")
+else:
+    print("il y a une erreur dans la saisie")
 
