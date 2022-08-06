@@ -2,11 +2,12 @@ class Personne:
     def __init__(self, nom ="", age = 0):
         self.nom = nom
         self.age = age
+        
+    
+    def sePresenter(self):
         if self.nom == "":
                 self.demanderNom()
                 self.demanderAge()
-    
-    def sePresenter(self):
         infoPersonne = f"Je m'appelle {self.nom}"
 
         if self.age == 0:
@@ -35,6 +36,16 @@ class Personne:
         self.age = input("quel est votre age?")
         return self.age
 
+liste_personnes = (Personne("Jean", 15), Personne("Paul", 25), Personne("Pierre"), Personne())
+for personne in liste_personnes:
+    personne.sePresenter()
+'''
+longueurListe = len(liste_personnes)
+
+for i in range(longueurListe):
+    liste_personnes[i].sePresenter()
+'''
+'''
 personne1 = Personne("Jean", 15)
 personne2 = Personne("Paul", 25)
 personne3 = Personne("Pierre")
@@ -45,3 +56,4 @@ personne1.sePresenter()
 personne2.sePresenter()
 personne3.sePresenter()
 personne4.sePresenter()
+'''
