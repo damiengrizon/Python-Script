@@ -201,7 +201,7 @@ N>= 80%                     A
 60% > N >= 50%              C 
 50% > N >= 40%              D
 N< 40%                      E
-'''
+
 from distutils.log import error
 
 
@@ -228,4 +228,44 @@ elif noteEnPourcentage < 40:
     print ( "l'appréciation pour cette note est  : E ")
 else:
     print("il y a une erreur dans la saisie")
+'''
 
+# Soit la liste suivante : ['Jean-Michel','Marc', 'Vanessa', 'Anne', 'Maximilien', 'Alexandre-Benoît', 'Louise']
+# Ecrivez un script qui affiche chacun de ces noms avec le nombre de caractères correcpondant.
+'''
+listPrenom = ['Jean-Michel','Marc', 'Vanessa', 'Anne', 'Maximilien', 'Alexandre-Benoît', 'Louise']
+for element in listPrenom:
+    print(element + " - longueur : ", end="")
+    print(len(element))
+'''
+# Ecrire une boucle de programme qui demande à l'utilisateur d'entrer des notes d'élèves. La boucle se terminera seulement si l'utilisateur entre une valeur négative. 
+# Avec les notes ainsi entrée, construire une liste. Après chaque entrée d'une nouvelle note ( et donc à chaque itération de la boucle), afficher le nombre de notes entrées,
+# la note la plus élevée, la note la plus basse et la moyenne de toutes les notes.
+def afficherListe(listeNote) :
+    somme = 0
+    print(len(listeNote))
+    print(max(listeNote))
+    print(min(listeNote))
+    for element in listeNote:
+        somme += element
+        moyenne = somme / len(listeNote)
+
+
+listeNotesSaisies = []
+nouvelleNote = input("saisissez la notes de l'élève qu vous souhaitez  ajouter : ")
+intNouvelleNote =  int(nouvelleNote)
+if intNouvelleNote < 0 :
+    print(" Vous avez saisi une note négative :  sortie de la saisie des notes ")
+elif intNouvelleNote >= 0 : 
+    listeNotesSaisies.append(intNouvelleNote)
+    afficherListe(listeNotesSaisies)
+'''
+ajouter une boucle While afin que la sequence soit reproduite
+'''
+
+
+# LES FONCTIONS ORIGINALES
+# Importer le module turtle afin de pouvoir effectuer des dessins simples:
+# Vous aller dessinez  une série de triangle équilatéraux de différentes couleurs
+# Definir en premier lieu  une fonction triangle() capable de dessiner un triangle d'une couleur bien déterminée ( ce qui signifie que la fonction triangle doit comporter un paramètre qui permettra de changer la couleur )
+# Utiliser cette fonction pour ensuite pour reproduire le triangle en différent endroit et en changeant de couleur à chaque fois.
