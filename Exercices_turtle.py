@@ -89,7 +89,7 @@ done()
 
 # Ajout d'une fonction qui permet de tracer des étoiles à 5 branches:
 #def etoil5():
-
+'''
 
 from turtle import *
 reset()
@@ -104,6 +104,7 @@ def etoile(taille, angle=0):
         right(144)
         forward(taille)
     up()
+    '''
 
 '''
 def dessinePlusieurs(objet, nombreObjet):
@@ -121,7 +122,9 @@ def dessinePlusieurs(objet, nombreObjet):
         goto(posX, 0)
         nombreObjet = nombreObjet -1
 '''
+'''
 while nombreEtoile > 0 :
+    
     for i in range(0,5):
         tailleEtoile = tailleEtoile + 10
         etoile(tailleEtoile)
@@ -133,18 +136,19 @@ while nombreEtoile > 0 :
         nombreEtoile = nombreEtoile -1
         forward(100)
 done()
-
+'''
 
 # ajout d'une fonction qui dessine des triantgles et des carrés à la suite des uns des autres:
 '''
 from turtle import *
+from math import sqrt
     # initialisation des paramètres et de la position du curseur 
 reset()
 speed(10)
 up()
-goto(0,-200)
+goto(-300,-300)
 
-def carre(taille, angle):
+def carre(taille, angle = 0):
     left(angle)
     for i in range(0,4):
         down()
@@ -152,7 +156,7 @@ def carre(taille, angle):
         left(90)
         up()
 
-def triangle(taille, couleur, angle):
+def triangle(taille, couleur, angle = 0):
     left(angle)
     fillcolor(couleur)
     begin_fill()
@@ -163,13 +167,112 @@ def triangle(taille, couleur, angle):
         up()
     end_fill()
 
+def etoile6branche(taille,couleur, angle = 0): 
+    left(angle)
+    triangle(taille, couleur)
+    forward(taille/2)
+    left(90)
+    forward((sqrt(3/2)*taille)/2)
+    right(90)
+    forward(taille/2)
+    triangle(taille, couleur, 180)
+
+def etoile(taille, angle=0):
+    right(angle)
+    down()
+    for i in range(0,5):
+        right(144)
+        forward(taille)
+    up()
 
 for i in range(0,1000,100):
-    carre(80,20)
+    carre(80)
     up()
     forward(100)
-    triangle(80, "red", 20 )
+    triangle(80, "red" )
     up()
     forward(100)
+    etoile6branche(80, 'black')
+    up()
+    forward(100)
+    etoile(100)
+    up()
 done()
 '''
+
+# Dessiner une étoile à 5 brancches, puis un triangle, puis une étoiel à 6 branches puis un carré. Cette série aura ensuite un angle de 120 deg  et grandira au fur et à mesure  on doit voir apparaitre une sorte de spirale avec la figure
+
+from turtle import *
+from math import sqrt
+
+speed(10)
+
+def triangle(taille, couleur, angle = 0):
+    left(angle)
+    fillcolor(couleur)
+    begin_fill()
+    for i in range(0,3):
+        down()
+        forward(taille)
+        left(120)
+        up()
+    end_fill()
+
+def etoile6branche(taille,couleur, angle = 0): 
+    left(angle)
+    forward(taille/2)
+    left(90)
+    forward((sqrt(3/2)*taille)/2)
+    right(90)
+    forward(taille/2)
+    triangle(taille, couleur, 180)
+    forward(taille)
+    left(90)
+    forward((sqrt(3/2)*taille)/2)
+    left(90)
+    triangle(taille, couleur)
+    
+
+
+def etoile(taille, angle=0):
+    left(angle)
+    down()
+    for i in range(0,5):
+        forward(taille)
+        left(144)
+    up()
+
+def carre(taille, angle = 0):
+    left(angle)
+    for i in range(0,4):
+        down()
+        forward(taille)
+        left(90)
+        up()
+
+tailleElement = 7
+angle = 70
+distanceEntreElement = tailleElement + tailleElement/5
+
+for i in range(0,50):
+    etoile(tailleElement)
+    up()
+    forward(distanceEntreElement)
+    etoile6branche(tailleElement, "black")
+    up()
+    forward(distanceEntreElement)
+    triangle(tailleElement, "red" )
+    up()
+    forward(distanceEntreElement)
+    carre(tailleElement)
+    forward(1.5*distanceEntreElement)
+
+    left(angle)
+
+    tailleElement += 5
+    angle -= 0.2
+    distanceEntreElement = tailleElement + tailleElement/5
+
+done()
+
+#revoir le tracé de l'etoile pour que le tracé du début soit à la fin
