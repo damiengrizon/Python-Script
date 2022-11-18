@@ -52,3 +52,13 @@ def inverse(ch):
 print(inverse("france"))
 print(inverse("bla et je n'ai pas fini"))
 '''
+
+# Définissez une fonction compteMots(ph) qui renvoie le nombre de mots contenus dans la phrase ph. On considère comme mots les ensembles de caractères inclus entre les espaces. 
+def compteMots(ph):
+    ph_split = ph.split(" ")
+    return len(ph_split)
+
+print(compteMots("salut michel ça va"))
+print(compteMots("cdd cdd ccc cc c c c ccc cc cc cc c cc cc cc cc cc  ggg g g   g g"))
+
+
