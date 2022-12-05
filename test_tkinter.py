@@ -144,7 +144,8 @@ def olympiqueRing():
     x1, y1, x2, y2 = 10, 200, 210, 400  
     x3, y3, x4, y4 = 110, 100, 310, 300
     couleur = ['red', 'blue', 'black', 'green','pink', 'yellow', 'purple']
-
+    # boucle for
+    '''
     for i in range(0,4):
         coul = couleur[i]
         can1.create_oval([x1, y1, x2, y2], width = 2, outline = coul)
@@ -156,6 +157,22 @@ def olympiqueRing():
         x3, x4 = x3 +200, x4 +200
         print (coul)
         coul = couleur[i+1]
+    '''  
+    # boucle while  
+    nbre_cercle = 7
+    while 7 >= nbre_cercle >= 4:
+        coul = couleur[nbre_cercle-1]
+        can1.create_oval([x1, y1, x2, y2], width = 2, outline = coul)
+        x1, x2 = x1 +200, x2 +200
+        print(coul)
+        nbre_cercle -= 1
+
+    while 3 >= nbre_cercle > 0:
+        can1.create_oval([x3, y3, x4, y4 ], width = 2, outline = coul)  
+        x3, x4 = x3 +200, x4 +200
+        coul = couleur[nbre_cercle-2]
+        print(coul)
+        nbre_cercle -= 1
         '''
         can1.create_oval([200, 500, 400, 700 ], width = 2, outline='blue')
         can1.create_oval([400, 500, 600, 700 ], width = 2, outline='pink')
